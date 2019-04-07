@@ -1,0 +1,14 @@
+{
+  "main.css": "/doggo-detector/static/css/main.9d6be5bc.chunk.css",
+  "main.js": "/doggo-detector/static/js/main.5260ed7a.chunk.js",
+  "main.js.map": "/doggo-detector/static/js/main.5260ed7a.chunk.js.map",
+  "runtime~main.js": "/doggo-detector/static/js/runtime~main.d41064d9.js",
+  "runtime~main.js.map": "/doggo-detector/static/js/runtime~main.d41064d9.js.map",
+  "static/js/2.5d1342ff.chunk.js": "/doggo-detector/static/js/2.5d1342ff.chunk.js",
+  "static/js/2.5d1342ff.chunk.js.map": "/doggo-detector/static/js/2.5d1342ff.chunk.js.map",
+  "index.html": "/doggo-detector/index.html",
+  "precache-manifest.4d629d820390e7ae51193eae01c1b9bb.js": "/doggo-detector/precache-manifest.4d629d820390e7ae51193eae01c1b9bb.js",
+  "service-worker.js": "/doggo-detector/service-worker.js",
+  "static/css/main.9d6be5bc.chunk.css.map": "/doggo-detector/static/css/main.9d6be5bc.chunk.css.map",
+  "static/media/dog.jpg": "/doggo-detector/static/media/dog.1afd5e79.jpg"
+}
