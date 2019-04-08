@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/doggo-detector/precache-manifest.0f1c421a2c7d4ce37081d4066903e7ff.js"
+  "/doggo-detector/precache-manifest.a97c2045c34364186be2cf3d1ad69db1.js"
 );
 
 workbox.clientsClaim();
