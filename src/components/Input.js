@@ -6,21 +6,52 @@ class Input extends Component {
     this.state = {};
   }
 
+  handleImage(event) {
+    this.props.getImage(URL.createObjectURL(event.target.files[0]))
+  }
+
   render() {
     const { camera } = this.props;
     let { modelLoaded } = this.props;
+    //let isInWebAppiOS = (window.navigator.standalone === true);
+    const isInWebAppiOS = () => ('standalone' in window.navigator) && (window.navigator.standalone);
 
     return (
       <div className="input-container">
+        {
+          (!isInWebAppiOS())
+            ? (
+              <button
+                onClick={() => (camera) ? this.props.updateCamera(false) : this.props.updateCamera(true)}
+                className="input-button"
+                onTouchStart={() => ""}
+              >
+                Camera
+              </button>
+            )
+            : (
+              <>
+              <input
+                type="file"
+                id="file-input"
+                accept="image/*"
+                capture="camera"
+                className='input-buttons'
+                onChange={(event) => this.handleImage(event)}
+              />
+              <label
+              type="button"
+              htmlFor="file-input" 
+              className="input-buttons"
+              onClick={() => ""}
+              onTouchStart={() => ""}>
+              Upload File
+              </label>
+              </>
+            )
+        }
         <button
-          onClick={() => (camera) ? this.props.updateCamera(false) : this.props.updateCamera(true)}
-          className="input-button"
-          onTouchStart={() => ""}
-        >
-          Camera
-        </button>
-        <button 
-          onClick={() => this.props.predict()} 
+          onClick={() => this.props.predict()}
           className="input-button"
           onTouchStart={() => ""}
           disabled={!modelLoaded}

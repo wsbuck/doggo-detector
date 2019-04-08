@@ -7,35 +7,7 @@ import * as tf from '@tensorflow/tfjs';
 
 import ImageContainer from './components/ImageContainer';
 import Input from './components/Input';
-
-export async function getTopKClasses(logits, topK) {
-  const values = await logits.data();
-
-  const valuesAndIndices = [];
-  for (let i = 0; i < values.length; i++) {
-    valuesAndIndices.push({ value: values[i], index: i });
-  }
-  valuesAndIndices.sort((a, b) => {
-    return b.value - a.value;
-  });
-  const topkValues = new Float32Array(topK);
-  const topkIndices = new Int32Array(topK);
-  for (let i = 0; i < topK; i++) {
-    topkValues[i] = valuesAndIndices[i].value;
-    topkIndices[i] = valuesAndIndices[i].index;
-  }
-
-  console.log(outputClasses);
-
-  const topClassesAndProbs = [];
-  for (let i = 0; i < topkIndices.length; i++) {
-    topClassesAndProbs.push({
-      className: outputClasses[topkIndices[i]],
-      probability: topkValues[i]
-    })
-  }
-  return topClassesAndProbs;
-}
+import PredictionOutput from './components/PredictionOutput';
 
 class App extends Component {
   constructor(props) {
@@ -43,8 +15,8 @@ class App extends Component {
     this.state = {
       image: doggo,
       camera: false,
-      prediction: null,
       modelLoaded: false,
+      prediction: null
     };
     this.updateCamera = this.updateCamera.bind(this);
     this.getImage = this.getImage.bind(this);
@@ -130,19 +102,28 @@ class App extends Component {
       // Make a prediction through mobilenet.
       return this.model.predict(batched);
     });
-    const classes = await getTopKClasses(logits, 3);
+    const classes = await this.getTopKClasses(logits, 3);
+    this.setState({prediction: classes})
     console.log(classes);
   }
 
   render() {
     return (
       <div className="App">
-        <ImageContainer image={this.state.image} camera={this.state.camera} getImage={this.getImage} />
+        <ImageContainer
+          image={this.state.image}
+          camera={this.state.camera}
+          getImage={this.getImage}
+        />
+        <PredictionOutput
+          prediction={this.state.prediction}
+        />
         <Input
           updateCamera={this.updateCamera}
           camera={this.state.camera}
           predict={this.predict}
           modelLoaded={this.state.modelLoaded}
+          getImage={this.getImage}
         />
       </div>
     );
