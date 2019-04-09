@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/doggo-detector/static/media/dog.1afd5e79.jpg"
   },
   {
-    "revision": "ce954f2e8d56186eecc174cf7dc3ae53",
+    "revision": "07ef798c3d60a1678f7cd482d082d084",
     "url": "/doggo-detector/index.html"
   }
 ];
