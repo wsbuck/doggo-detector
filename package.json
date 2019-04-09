@@ -1,6 +1,6 @@
 {
   "name": "dogenet-app",
-  "homepage": "https://wsbuck.github.io/doggo-detector",
+  "homepage": "https://wsbuck.github.io/doge-detector",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
