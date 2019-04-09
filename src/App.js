@@ -87,7 +87,6 @@ class App extends Component {
   }
 
   async predict() {
-    //this.model = await tf.loadLayersModel("https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json")
     const imgElement = document.querySelector('img');
     const logits = tf.tidy(() => {
       // tf.browser.fromPixels() returns a Tensor from an image element.
