@@ -23,7 +23,7 @@ class PredictionOutput extends Component {
                     <>
                       <tr>
                         <th className="pred-object">{value.className}</th>
-                        <th className="pred-percent">{parseFloat(value.probability).toFixed(2)} %</th>
+                        <th className="pred-percent">{parseFloat(value.probability * 10000 / 100).toFixed(2)} %</th>
                       </tr>
                     </>
                   )
