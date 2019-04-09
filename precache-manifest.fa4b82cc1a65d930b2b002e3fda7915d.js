@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9aafa661acf39f340b8b",
-    "url": "/doggo-detector/static/css/main.ac350370.chunk.css"
+    "revision": "47fea925656c22a943e6",
+    "url": "/doggo-detector/static/css/main.392bc408.chunk.css"
   },
   {
-    "revision": "9aafa661acf39f340b8b",
-    "url": "/doggo-detector/static/js/main.a9ea686b.chunk.js"
+    "revision": "47fea925656c22a943e6",
+    "url": "/doggo-detector/static/js/main.25a95e19.chunk.js"
   },
   {
     "revision": "38b4225ff0f154ddb9a9",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/doggo-detector/static/media/dog.1afd5e79.jpg"
   },
   {
-    "revision": "b65f99d085eda922a6771ecab3a19954",
+    "revision": "ce954f2e8d56186eecc174cf7dc3ae53",
     "url": "/doggo-detector/index.html"
   }
 ];
