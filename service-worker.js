@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/doggo-detector/precache-manifest.18e7ba683bd1fe0a2921cbb131d81971.js"
+  "/doge-detector/precache-manifest.5e3c8f54a5023afa4044b573b1e4d481.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/doggo-detector/index.html", {
+workbox.routing.registerNavigationRoute("/doge-detector/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

@@ -1,14 +1,14 @@
 {
-  "main.css": "/doggo-detector/static/css/main.392bc408.chunk.css",
-  "main.js": "/doggo-detector/static/js/main.25a95e19.chunk.js",
-  "main.js.map": "/doggo-detector/static/js/main.25a95e19.chunk.js.map",
-  "runtime~main.js": "/doggo-detector/static/js/runtime~main.d41064d9.js",
-  "runtime~main.js.map": "/doggo-detector/static/js/runtime~main.d41064d9.js.map",
-  "static/js/2.aa4a9de3.chunk.js": "/doggo-detector/static/js/2.aa4a9de3.chunk.js",
-  "static/js/2.aa4a9de3.chunk.js.map": "/doggo-detector/static/js/2.aa4a9de3.chunk.js.map",
-  "index.html": "/doggo-detector/index.html",
-  "precache-manifest.18e7ba683bd1fe0a2921cbb131d81971.js": "/doggo-detector/precache-manifest.18e7ba683bd1fe0a2921cbb131d81971.js",
-  "service-worker.js": "/doggo-detector/service-worker.js",
-  "static/css/main.392bc408.chunk.css.map": "/doggo-detector/static/css/main.392bc408.chunk.css.map",
-  "static/media/dog.jpg": "/doggo-detector/static/media/dog.1afd5e79.jpg"
+  "main.css": "/doge-detector/static/css/main.392bc408.chunk.css",
+  "main.js": "/doge-detector/static/js/main.343cc5c4.chunk.js",
+  "main.js.map": "/doge-detector/static/js/main.343cc5c4.chunk.js.map",
+  "runtime~main.js": "/doge-detector/static/js/runtime~main.efb0e347.js",
+  "runtime~main.js.map": "/doge-detector/static/js/runtime~main.efb0e347.js.map",
+  "static/js/2.aa4a9de3.chunk.js": "/doge-detector/static/js/2.aa4a9de3.chunk.js",
+  "static/js/2.aa4a9de3.chunk.js.map": "/doge-detector/static/js/2.aa4a9de3.chunk.js.map",
+  "index.html": "/doge-detector/index.html",
+  "precache-manifest.5e3c8f54a5023afa4044b573b1e4d481.js": "/doge-detector/precache-manifest.5e3c8f54a5023afa4044b573b1e4d481.js",
+  "service-worker.js": "/doge-detector/service-worker.js",
+  "static/css/main.392bc408.chunk.css.map": "/doge-detector/static/css/main.392bc408.chunk.css.map",
+  "static/media/dog.jpg": "/doge-detector/static/media/dog.1afd5e79.jpg"
 }
