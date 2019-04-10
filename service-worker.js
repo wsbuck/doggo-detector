@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/doge-detector/precache-manifest.8e7f248d97ac46b7c4bb03de8a79e1ba.js"
+  "/doge-detector/precache-manifest.9f105b292a5bbfb5117875f4196e9fe9.js"
 );
 
 workbox.clientsClaim();
