@@ -20,12 +20,12 @@ class PredictionOutput extends Component {
               <tbody>
                 {prediction.map((value, index) => {
                   return (
-                    <>
-                      <tr>
-                        <th className="pred-object">{value.className}</th>
-                        <th className="pred-percent">{parseFloat(value.probability * 10000 / 100).toFixed(2)} %</th>
-                      </tr>
-                    </>
+                    <tr key={index}>
+                      <th className="pred-object">{value.className}</th>
+                      <th className="pred-percent">
+                        {parseFloat(value.probability * 10000 / 100).toFixed(2)}%
+                        </th>
+                    </tr>
                   )
                 })}
               </tbody>

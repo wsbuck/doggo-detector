@@ -77,12 +77,18 @@ class App extends Component {
     }
 
     const topClassesAndProbs = [];
+    let percentageSum = 0.00;
     for (let i = 0; i < topkIndices.length; i++) {
+      percentageSum += topkValues[i];
       topClassesAndProbs.push({
         className: this.outputClasses[topkIndices[i]],
         probability: topkValues[i]
       })
     }
+    topClassesAndProbs.push({
+      className: "Other",
+      probability: 1.00 - percentageSum
+    });
     return topClassesAndProbs;
   }
 
@@ -103,7 +109,7 @@ class App extends Component {
     });
     const classes = await this.getTopKClasses(logits, 3);
     this.setState({prediction: classes})
-    console.log(classes);
+    //console.log(classes);
   }
 
   render() {

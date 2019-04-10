@@ -27,9 +27,9 @@ class Input extends Component {
       return (!!ua.match(/iPad/i) || !!ua.match(/iPhone/i))
     }
 
-    console.log(isiOS());
-    console.log(isInWebAppiOS());
-    console.log(isSafari());
+    //console.log(isiOS());
+    //console.log(isInWebAppiOS());
+    //console.log(isSafari());
 
     return (
       <div className="input-container">
