@@ -10,6 +10,12 @@ class Input extends Component {
     this.props.getImage(URL.createObjectURL(event.target.files[0]))
   }
 
+  handlePredict() {
+    if (!this.props.camera) {
+      this.props.predict()
+    }
+  }
+
   render() {
     const { camera } = this.props;
     let { modelLoaded } = this.props;
@@ -67,7 +73,7 @@ class Input extends Component {
             )
         }
         <button
-          onClick={() => this.props.predict()}
+          onClick={() => this.handlePredict()}
           className="input-button"
           onTouchStart={() => ""}
           disabled={!modelLoaded}

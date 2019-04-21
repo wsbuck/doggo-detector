@@ -8,6 +8,7 @@ import * as tf from '@tensorflow/tfjs';
 import ImageContainer from './components/ImageContainer';
 import Input from './components/Input';
 import PredictionOutput from './components/PredictionOutput';
+import Info from  './components/Info';
 
 class App extends Component {
   constructor(props) {
@@ -130,6 +131,7 @@ class App extends Component {
           modelLoaded={this.state.modelLoaded}
           getImage={this.getImage}
         />
+        <Info />
       </div>
     );
   }

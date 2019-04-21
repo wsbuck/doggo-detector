@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 body {
   background-color: #282c34;
@@ -172,4 +173,27 @@ table {
 
 .pred-percent {
   text-align: center;
+}
+
+div > .info-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.info-button {
+  color: white;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  background: none;
+  padding: 0px;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.info-text {
+  color: #282c34;
 }
