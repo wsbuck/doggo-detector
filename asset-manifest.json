@@ -1,14 +1,14 @@
 {
-  "main.css": "/doge-detector/static/css/main.68d99a18.chunk.css",
-  "main.js": "/doge-detector/static/js/main.1bf3a842.chunk.js",
-  "main.js.map": "/doge-detector/static/js/main.1bf3a842.chunk.js.map",
+  "main.css": "/doge-detector/static/css/main.f57ad3ac.chunk.css",
+  "main.js": "/doge-detector/static/js/main.4aa3ea26.chunk.js",
+  "main.js.map": "/doge-detector/static/js/main.4aa3ea26.chunk.js.map",
   "runtime~main.js": "/doge-detector/static/js/runtime~main.efb0e347.js",
   "runtime~main.js.map": "/doge-detector/static/js/runtime~main.efb0e347.js.map",
-  "static/js/2.aa4a9de3.chunk.js": "/doge-detector/static/js/2.aa4a9de3.chunk.js",
-  "static/js/2.aa4a9de3.chunk.js.map": "/doge-detector/static/js/2.aa4a9de3.chunk.js.map",
+  "static/js/2.16f58a98.chunk.js": "/doge-detector/static/js/2.16f58a98.chunk.js",
+  "static/js/2.16f58a98.chunk.js.map": "/doge-detector/static/js/2.16f58a98.chunk.js.map",
   "index.html": "/doge-detector/index.html",
-  "precache-manifest.9f105b292a5bbfb5117875f4196e9fe9.js": "/doge-detector/precache-manifest.9f105b292a5bbfb5117875f4196e9fe9.js",
+  "precache-manifest.2185d14e60acac69a3fcf791bf5856b4.js": "/doge-detector/precache-manifest.2185d14e60acac69a3fcf791bf5856b4.js",
   "service-worker.js": "/doge-detector/service-worker.js",
-  "static/css/main.68d99a18.chunk.css.map": "/doge-detector/static/css/main.68d99a18.chunk.css.map",
+  "static/css/main.f57ad3ac.chunk.css.map": "/doge-detector/static/css/main.f57ad3ac.chunk.css.map",
   "static/media/dog.jpg": "/doge-detector/static/media/dog.1afd5e79.jpg"
 }
