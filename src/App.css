@@ -85,6 +85,7 @@ img.doggo-image {
   font-family: 'Bungee', cursive;
   text-decoration: none;
   outline: none;
+  user-select: none;
 }
 
 .input-button:hover {
@@ -110,6 +111,7 @@ img.doggo-image {
   font-family: 'Bungee', cursive;
   text-decoration: none;
   outline: none;
+  user-select: none;
 }
 
 #file-input + label:hover {
