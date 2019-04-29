@@ -1,5 +1,5 @@
 {
-  "main.css": "/doge-detector/static/css/main.f57ad3ac.chunk.css",
+  "main.css": "/doge-detector/static/css/main.78ab8c6f.chunk.css",
   "main.js": "/doge-detector/static/js/main.4aa3ea26.chunk.js",
   "main.js.map": "/doge-detector/static/js/main.4aa3ea26.chunk.js.map",
   "runtime~main.js": "/doge-detector/static/js/runtime~main.efb0e347.js",
@@ -7,8 +7,8 @@
   "static/js/2.16f58a98.chunk.js": "/doge-detector/static/js/2.16f58a98.chunk.js",
   "static/js/2.16f58a98.chunk.js.map": "/doge-detector/static/js/2.16f58a98.chunk.js.map",
   "index.html": "/doge-detector/index.html",
-  "precache-manifest.2185d14e60acac69a3fcf791bf5856b4.js": "/doge-detector/precache-manifest.2185d14e60acac69a3fcf791bf5856b4.js",
+  "precache-manifest.b17d1f7b24ba7276c02edb10e9af5576.js": "/doge-detector/precache-manifest.b17d1f7b24ba7276c02edb10e9af5576.js",
   "service-worker.js": "/doge-detector/service-worker.js",
-  "static/css/main.f57ad3ac.chunk.css.map": "/doge-detector/static/css/main.f57ad3ac.chunk.css.map",
+  "static/css/main.78ab8c6f.chunk.css.map": "/doge-detector/static/css/main.78ab8c6f.chunk.css.map",
   "static/media/dog.jpg": "/doge-detector/static/media/dog.1afd5e79.jpg"
 }
