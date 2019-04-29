@@ -86,6 +86,7 @@ img.doggo-image {
   text-decoration: none;
   outline: none;
   user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .input-button:hover {
@@ -112,6 +113,7 @@ img.doggo-image {
   text-decoration: none;
   outline: none;
   user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);;
 }
 
 #file-input + label:hover {
