@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
-body {
-  background-color: #282c34;
-}
-
 p {
   color: white;
 }
@@ -40,7 +36,7 @@ img.doggo-image {
 }
 
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {

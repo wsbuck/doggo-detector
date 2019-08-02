@@ -1,89 +1,72 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Fab from '@material-ui/core/Fab';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import Pets from '@material-ui/icons/Pets';
 
-class Input extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+// import { isInWebAppiOS, isiOS, isSafari } from '../utils';
 
-  handleImage(event) {
-    this.props.getImage(URL.createObjectURL(event.target.files[0]))
-  }
+const useStyles = makeStyles(theme => ({
+  text: {
+    padding: theme.spacing(2, 2, 0),
+  },
+  appBar: {
+    justifyContent: 'center',
+    display: 'grid',
+    top: 'auto',
+    bottom: 0,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  fabButton: {
+    display: 'grid',
+    zIndex: 1,
+    top: -30,
+    margin: theme.spacing(2),
+  },
+}));
 
-  handlePredict() {
-    if (!this.props.camera) {
-      this.props.predict()
+export default function Input(props) {
+  const classes = useStyles();
+  const { modelLoaded, camera } = props;
+  
+  // function handleImage(event) {
+  //   props.getImage(URL.createObjectURL(event.target.files[0]))
+  // }
+
+  function handlePredict() {
+    if (!props.camera) {
+      props.predict()
     }
   }
 
-  render() {
-    const { camera } = this.props;
-    let { modelLoaded } = this.props;
-    //let isInWebAppiOS = (window.navigator.standalone === true);
-    const isInWebAppiOS = () => ('standalone' in window.navigator) && (window.navigator.standalone);
-    const isSafari = () => {
-      const ua = window.navigator.userAgent;
-      const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-      var webkit = !!ua.match(/WebKit/i);
-      var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-      return iOSSafari;
-    }
-    const isiOS = () => {
-      const ua = window.navigator.userAgent;
-      return (!!ua.match(/iPad/i) || !!ua.match(/iPhone/i))
-    }
-
-    //console.log(isiOS());
-    //console.log(isInWebAppiOS());
-    //console.log(isSafari());
-
-    return (
-      <div className="input-container">
-        {
-          //(!isInWebAppiOS() || isSafari())
-          (!isiOS() || (isSafari() && !isInWebAppiOS()))
-            ? (
-              <button
-                onClick={() => (camera) ? this.props.updateCamera(false) : this.props.updateCamera(true)}
-                className="input-button"
-                onTouchStart={() => ""}
-              >
-                Camera
-              </button>
-            )
-            : (
-              <>
-              <input
-                type="file"
-                id="file-input"
-                accept="image/*"
-                capture="camera"
-                className='input-buttons'
-                onChange={(event) => this.handleImage(event)}
-              />
-              <label
-              type="button"
-              htmlFor="file-input" 
-              className="input-buttons"
-              onClick={() => ""}
-              onTouchStart={() => ""}>
-              Upload File
-              </label>
-              </>
-            )
-        }
-        <button
-          onClick={() => this.handlePredict()}
-          className="input-button"
-          onTouchStart={() => ""}
-          disabled={!modelLoaded}
-        >
-          Predict
-        </button>
-      </div>
-    )
-
+  function handleCamera() {
+    props.updateCamera(!camera);
   }
+
+  return (
+    <>
+      <AppBar position='fixed' color='primary' className={classes.appBar}>
+        <Toolbar>
+          <Fab 
+            color="secondary" aria-label="add" 
+            className={classes.fabButton} onClick={handleCamera}
+          >
+            <PhotoCamera />
+          </Fab>
+          <Fab 
+            color="secondary" aria-label="add" 
+            className={classes.fabButton} onClick={handlePredict}
+            disabled={!modelLoaded}
+          >
+            <Pets />
+          </Fab>
+          <div className={classes.grow} />
+        </Toolbar>
+      </AppBar>
+    </>
+  )
 }
-
-export default Input;

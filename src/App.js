@@ -8,7 +8,8 @@ import * as tf from '@tensorflow/tfjs';
 import ImageContainer from './components/ImageContainer';
 import Input from './components/Input';
 import PredictionOutput from './components/PredictionOutput';
-import Info from  './components/Info';
+import Header from './components/Header';
+
 
 class App extends Component {
   constructor(props) {
@@ -109,13 +110,14 @@ class App extends Component {
       return this.model.predict(batched);
     });
     const classes = await this.getTopKClasses(logits, 3);
-    this.setState({prediction: classes})
+    this.setState({ prediction: classes })
     //console.log(classes);
   }
 
   render() {
     return (
       <div className="App">
+        <Header />
         <ImageContainer
           image={this.state.image}
           camera={this.state.camera}
@@ -131,7 +133,6 @@ class App extends Component {
           modelLoaded={this.state.modelLoaded}
           getImage={this.getImage}
         />
-        <Info />
       </div>
     );
   }
