@@ -22,7 +22,7 @@ export default function InfoButton() {
   return (
     <div>
       <IconButton
-        color='inherit' aria-label='Information'
+        color='secondary' aria-label='Information'
         onClick={handleClickOpen}
       >
         <Info />
