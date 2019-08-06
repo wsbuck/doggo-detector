@@ -29,12 +29,18 @@ export default function App() {
   }, []);
 
   async function loadModel() {
-    const modelURL = "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json";
-    const model = await tf.loadLayersModel(modelURL);
+    let model;
+    try {
+      model = await tf.loadLayersModel('indexeddb://model');
+      console.log('model loaded');
+    } catch(err) {
+      const modelURL = "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json";
+      model = await tf.loadLayersModel(modelURL);
+      const saveResult = await model.save('indexeddb://model');
+    }
     const result = tf.tidy(() => model.predict(tf.zeros([1, 224, 224, 3])));
     await result.data();
     result.dispose();
-    // setModelStatus(true);
     return model;
   }
 
