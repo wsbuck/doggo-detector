@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import doggo from './dog.jpg'
 import outputClasses from './tfjs/outputClasses.json';
@@ -10,7 +10,7 @@ import Input from './components/Input';
 import PredictionOutput from './components/PredictionOutput';
 import Header from './components/Header';
 
-import useCamera from './hooks/useCamera';
+// import useCamera from './hooks/useCamera';
 
 
 export default function App() {
@@ -36,7 +36,7 @@ export default function App() {
     } catch(err) {
       const modelURL = "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json";
       model = await tf.loadLayersModel(modelURL);
-      const saveResult = await model.save('indexeddb://model');
+      await model.save('indexeddb://model');
     }
     const result = tf.tidy(() => model.predict(tf.zeros([1, 224, 224, 3])));
     await result.data();
@@ -48,16 +48,16 @@ export default function App() {
     setImage(img);
   }
 
-  function preprocessImage(img) {
-    let tensor = tf.browser.fromPixels(img)
-      .resizeNearestNeighbor([224, 224])
-      .toFloat();
+  // function preprocessImage(img) {
+  //   let tensor = tf.browser.fromPixels(img)
+  //     .resizeNearestNeighbor([224, 224])
+  //     .toFloat();
 
-    let offset = tf.scalar(127.5);
-    return tensor.sub(offset)
-      .div(offset)
-      .expandDims();
-  }
+  //   let offset = tf.scalar(127.5);
+  //   return tensor.sub(offset)
+  //     .div(offset)
+  //     .expandDims();
+  // }
 
   async function getTopKClasses(logits, topK) {
     const values = await logits.data();
@@ -133,132 +133,3 @@ export default function App() {
     </div>
   );
 }
-
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       image: doggo,
-//       cameraStatus: false,
-//       modelLoaded: false,
-//       prediction: null
-//     };
-//     this.updateCamera = this.updateCamera.bind(this);
-//     this.getImage = this.getImage.bind(this);
-//     this.predict = this.predict.bind(this);
-//     this.loadModel = this.loadModel.bind(this);
-//   }
-
-//   componentDidMount() {
-//     this.loadModel();
-//   }
-
-//   updateCamera(data) {
-//     this.setState({ cameraStatus: data })
-//   }
-
-//   async loadModel() {
-//     this.outputClasses = outputClasses;
-//     this.model = await tf.loadLayersModel("https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json");
-//     this.setState({ modelLoaded: true });
-//     const result = tf.tidy(
-//       () => this.model.predict(tf.zeros(
-//         [1, 224, 224, 3])));
-//     await result.data();
-//     result.dispose();
-//   }
-
-//   getImage(img) {
-//     this.setState({ image: img })
-//   }
-
-//   preprocessImage(img) {
-//     let tensor = tf.browser.fromPixels(img)
-//       .resizeNearestNeighbor([224, 224])
-//       .toFloat();
-
-//     let offset = tf.scalar(127.5);
-//     return tensor.sub(offset)
-//       .div(offset)
-//       .expandDims();
-
-//   }
-
-//   async getTopKClasses(logits, topK) {
-//     const values = await logits.data();
-
-//     const valuesAndIndices = [];
-//     for (let i = 0; i < values.length; i++) {
-//       valuesAndIndices.push({ value: values[i], index: i });
-//     }
-//     valuesAndIndices.sort((a, b) => {
-//       return b.value - a.value;
-//     });
-//     const topkValues = new Float32Array(topK);
-//     const topkIndices = new Int32Array(topK);
-//     for (let i = 0; i < topK; i++) {
-//       topkValues[i] = valuesAndIndices[i].value;
-//       topkIndices[i] = valuesAndIndices[i].index;
-//     }
-
-//     const topClassesAndProbs = [];
-//     let percentageSum = 0.00;
-//     for (let i = 0; i < topkIndices.length; i++) {
-//       percentageSum += topkValues[i];
-//       topClassesAndProbs.push({
-//         className: this.outputClasses[topkIndices[i]],
-//         probability: topkValues[i]
-//       })
-//     }
-//     topClassesAndProbs.push({
-//       className: "Other",
-//       probability: 1.00 - percentageSum
-//     });
-//     return topClassesAndProbs;
-//   }
-
-//   async predict() {
-//     const imgElement = document.querySelector('img');
-//     const logits = tf.tidy(() => {
-//       // tf.browser.fromPixels() returns a Tensor from an image element.
-//       const img = tf.browser.fromPixels(imgElement)
-//         .resizeNearestNeighbor([224, 224])
-//         .toFloat();
-//       const offset = tf.scalar(127.5);
-//       // Normalize the image from [0, 255] to [-1, 1].
-//       const normalized = img.sub(offset).div(offset);
-//       // Reshape to a single-element batch so we can pass it to predict.
-//       const batched = normalized.reshape([1, 224, 224, 3]);
-//       // Make a prediction through mobilenet.
-//       return this.model.predict(batched);
-//     });
-//     const classes = await this.getTopKClasses(logits, 3);
-//     this.setState({ prediction: classes })
-//     //console.log(classes);
-//   }
-
-//   render() {
-//     return (
-//       <div className="App">
-//         <Header />
-//         <ImageContainer
-//           image={this.state.image}
-//           cameraStatus={this.state.cameraStatus}
-//           getImage={this.getImage}
-//         />
-//         <PredictionOutput
-//           prediction={this.state.prediction}
-//         />
-//         <Input
-//           updateCamera={this.updateCamera}
-//           cameraStatus={this.state.cameraStatus}
-//           predict={this.predict}
-//           modelLoaded={this.state.modelLoaded}
-//           getImage={this.getImage}
-//         />
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
