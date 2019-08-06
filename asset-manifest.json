@@ -1,13 +1,13 @@
 {
   "main.css": "/doge-detector/static/css/main.53dd9ae1.chunk.css",
-  "main.js": "/doge-detector/static/js/main.b9624549.chunk.js",
-  "main.js.map": "/doge-detector/static/js/main.b9624549.chunk.js.map",
+  "main.js": "/doge-detector/static/js/main.73f98558.chunk.js",
+  "main.js.map": "/doge-detector/static/js/main.73f98558.chunk.js.map",
   "runtime~main.js": "/doge-detector/static/js/runtime~main.efb0e347.js",
   "runtime~main.js.map": "/doge-detector/static/js/runtime~main.efb0e347.js.map",
-  "static/js/2.32bdbcba.chunk.js": "/doge-detector/static/js/2.32bdbcba.chunk.js",
-  "static/js/2.32bdbcba.chunk.js.map": "/doge-detector/static/js/2.32bdbcba.chunk.js.map",
+  "static/js/2.bc2c9afe.chunk.js": "/doge-detector/static/js/2.bc2c9afe.chunk.js",
+  "static/js/2.bc2c9afe.chunk.js.map": "/doge-detector/static/js/2.bc2c9afe.chunk.js.map",
   "index.html": "/doge-detector/index.html",
-  "precache-manifest.80e1d74e629d3bbbe5ceca3cbffb8a83.js": "/doge-detector/precache-manifest.80e1d74e629d3bbbe5ceca3cbffb8a83.js",
+  "precache-manifest.4738ee28ce6b92bcb39e89b1a3119981.js": "/doge-detector/precache-manifest.4738ee28ce6b92bcb39e89b1a3119981.js",
   "service-worker.js": "/doge-detector/service-worker.js",
   "static/css/main.53dd9ae1.chunk.css.map": "/doge-detector/static/css/main.53dd9ae1.chunk.css.map",
   "static/media/dog.jpg": "/doge-detector/static/media/dog.1afd5e79.jpg"
