@@ -29,6 +29,9 @@ p {
 
 .doggo-images {
   max-width: 100%;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
 
 }
 
@@ -201,4 +204,8 @@ div > .info-button {
 
 .info-text {
   color: #282c34;
+}
+
+#imgupload {
+  display: none;
 }

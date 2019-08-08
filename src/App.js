@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import doggo from './dog.jpg'
+import doggo from './dog.png'
 import outputClasses from './tfjs/outputClasses.json';
 
 import * as tf from '@tensorflow/tfjs';

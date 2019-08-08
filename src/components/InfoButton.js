@@ -50,7 +50,12 @@ export default function InfoButton() {
             className={classes.bodyText}>
             This is made with tensorflow.js and React.
             The model is mobilenet retrained only on the dogs of ImageNet.
-            The code for this project can be found <a href="https://github.com/wsbuck/doge-detector">here</a> and the tensorflow model is <a href="https://github.com/wsbuck/DogeNetTFModel">here</a>.
+            The code for this project can be found <a href="https://github.com/wsbuck/doge-detector">here</a> and 
+            the tensorflow model is <a href="https://github.com/wsbuck/DogeNetTFModel">here</a>.
+            <br />
+            <br />
+            <b>The prediction is run entirely on your device! Your images are never sent
+            to a server.</b>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
