@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "d38daae1152377df88b0",
+    "revision": "3f8dce6010895fccd6c8",
     "url": "/doge-detector/static/css/main.1be602e0.chunk.css"
   },
   {
-    "revision": "d38daae1152377df88b0",
-    "url": "/doge-detector/static/js/main.009a34c7.chunk.js"
+    "revision": "3f8dce6010895fccd6c8",
+    "url": "/doge-detector/static/js/main.04ce7c07.chunk.js"
   },
   {
     "revision": "c302615955e38a33ce31",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/doge-detector/static/media/dog.19fed632.png"
   },
   {
-    "revision": "b8b2f2e4b4c5b72145d872082a19987d",
+    "revision": "35ac57edcdbdc0f1980a10e7b9cecf0f",
     "url": "/doge-detector/index.html"
   }
 ];
