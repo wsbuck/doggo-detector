@@ -21,7 +21,6 @@ export default function ImageContainer(props) {
   const snapShotCanvas = document.createElement('canvas');
   // const IMAGE_WIDTH = 300;
   // const IMAGE_HEIGHT = 300;
-  const MAX_HEIGHT = 500;
   // const [currentStream, setCurrentStream] = useState(null);
   // eslint-disable-next-line no-unused-vars
   let currentStream = null;

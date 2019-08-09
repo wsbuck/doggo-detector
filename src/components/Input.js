@@ -74,14 +74,6 @@ export default function Input(props) {
             )
             : ( "" )
           }
-
-          {/* <Fab 
-            color="secondary" aria-label="turn on camera button" 
-            className={classes.fabButton} onClick={handleCamera}
-          >
-            <PhotoCamera />
-          </Fab> */}
-
           <Fab 
             color="secondary" aria-label="upload image button" 
             className={classes.fabButton} onClick={handleImageUpload}
