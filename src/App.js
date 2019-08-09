@@ -105,7 +105,7 @@ export default function App() {
       // Reshape to a single-element batch so we can pass it to predict.
       const batched = normalized.reshape([1, 224, 224, 3]);
       // Make a prediction through mobilenet.
-      console.log(model);
+      // console.log(model);
       return model.predict(batched);
     });
     const classes = await getTopKClasses(logits, 3);
