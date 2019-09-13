@@ -77,13 +77,14 @@ export default function Input(props) {
           <Fab 
             color="secondary" aria-label="upload image button" 
             className={classes.fabButton} onClick={handleImageUpload}
+            disabled={cameraStatus}
           >
             <Photo />
           </Fab>
           <Fab 
             color="secondary" aria-label="predict breed button" 
             className={classes.fabButton} onClick={handlePredict}
-            disabled={!modelLoaded}
+            disabled={!modelLoaded || cameraStatus}
           >
             {modelLoaded ? <Pets /> : <CircularProgress color="secondary" />}
           </Fab>

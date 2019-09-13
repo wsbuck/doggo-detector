@@ -19,7 +19,7 @@ export default function App() {
   const [modelStatus, setModelStatus] = useState(false);
   const [model, setModel] = useState(null);
   const [prediction, setPrediction] = useState(null);
-  
+
   useEffect(() => {
     loadModel()
       .then((loadedModel => {
@@ -33,12 +33,16 @@ export default function App() {
     try {
       model = await tf.loadLayersModel('indexeddb://model');
       console.log('model loaded');
-    } catch(err) {
-      const modelURL = "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json";
+    } catch (err) {
+      const modelURL = (
+        "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json"
+      );
       model = await tf.loadLayersModel(modelURL);
       await model.save('indexeddb://model');
     }
-    const result = tf.tidy(() => model.predict(tf.zeros([1, 224, 224, 3])));
+    const result = tf.tidy(() => (
+      model.predict(tf.zeros([1, 224, 224, 3]))
+    ));
     await result.data();
     result.dispose();
     return model;
@@ -63,7 +67,7 @@ export default function App() {
     const values = await logits.data();
     const valuesAndIndices = [];
     for (let i = 0; i < values.length; i++) {
-      valuesAndIndices.push({ value: values[i], index: i});
+      valuesAndIndices.push({ value: values[i], index: i });
     }
 
     valuesAndIndices.sort((a, b) => {
@@ -111,7 +115,7 @@ export default function App() {
     const classes = await getTopKClasses(logits, 3);
     setPrediction(classes);
   }
-  
+
   return (
     <div className="App">
       <Header />
