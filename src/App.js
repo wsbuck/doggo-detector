@@ -10,9 +10,6 @@ import Input from './components/Input';
 import PredictionOutput from './components/PredictionOutput';
 import Header from './components/Header';
 
-// import useCamera from './hooks/useCamera';
-
-
 export default function App() {
   const [image, setImage] = useState(doggo);
   const [cameraStatus, setCameraStatus] = useState(false);
@@ -52,17 +49,6 @@ export default function App() {
     setImage(img);
   }
 
-  // function preprocessImage(img) {
-  //   let tensor = tf.browser.fromPixels(img)
-  //     .resizeNearestNeighbor([224, 224])
-  //     .toFloat();
-
-  //   let offset = tf.scalar(127.5);
-  //   return tensor.sub(offset)
-  //     .div(offset)
-  //     .expandDims();
-  // }
-
   async function getTopKClasses(logits, topK) {
     const values = await logits.data();
     const valuesAndIndices = [];
@@ -99,7 +85,6 @@ export default function App() {
   async function predict() {
     const imgElement = document.querySelector('img');
     const logits = tf.tidy(() => {
-      // tf.browser.fromPixels() returns a Tensor from an image element.
       const img = tf.browser.fromPixels(imgElement)
         .resizeNearestNeighbor([224, 224])
         .toFloat();
@@ -109,7 +94,6 @@ export default function App() {
       // Reshape to a single-element batch so we can pass it to predict.
       const batched = normalized.reshape([1, 224, 224, 3]);
       // Make a prediction through mobilenet.
-      // console.log(model);
       return model.predict(batched);
     });
     const classes = await getTopKClasses(logits, 3);
