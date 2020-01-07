@@ -19,30 +19,35 @@ export default function App() {
 
   useEffect(() => {
     loadModel()
-      .then((loadedModel => {
+      .then(loadedModel => {
         setModel(loadedModel);
         setModelStatus(true);
-      }))
+      })
   }, []);
 
-  async function loadModel() {
-    let model;
-    try {
-      model = await tf.loadLayersModel('indexeddb://model');
-      console.log('model loaded');
-    } catch (err) {
-      const modelURL = (
-        "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json"
-      );
-      model = await tf.loadLayersModel(modelURL);
-      await model.save('indexeddb://model');
-    }
-    const result = tf.tidy(() => (
-      model.predict(tf.zeros([1, 224, 224, 3]))
-    ));
-    await result.data();
-    result.dispose();
-    return model;
+  function loadModel() {
+    return window.indexedDB.databases()
+      .then(dbs => {
+        return dbs.filter(db => db.name === 'tensorflowjs');
+      }).then(async arr => {
+        if (arr.length === 0) {
+          console.log('downloading model...');
+          const modelURL = (
+            "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json"
+          );
+          return await tf.loadLayersModel(modelURL)
+        } else {
+          return await tf.loadLayersModel('indexeddb://model');
+        }
+      }).then(model => {
+        model.save('indexeddb://model');
+        // const result = tf.tidy(() => (
+        //   model.predict(tf.zeros([1, 224, 224, 3]))
+        // ));
+        // result.data();
+        // result.dispose();
+        return model;
+      }).catch(console.error);
   }
 
   function getImage(img) {
