@@ -25,29 +25,34 @@ export default function App() {
       })
   }, []);
 
+  function checkDBExists(dbName) {
+    return new Promise((resolve, reject) => {
+      const request = window.indexedDB.open(dbName);
+      request.onupgradeneeded = function (e) {
+        e.target.transaction.abort();
+        resolve(false);
+      }
+      request.onsuccess = function(e) {
+        resolve(true);
+      }
+    });
+  }
+
   function loadModel() {
-    return window.indexedDB.databases()
-      .then(dbs => {
-        return dbs.filter(db => db.name === 'tensorflowjs');
-      }).then(async arr => {
-        if (arr.length === 0) {
-          console.log('downloading model...');
-          const modelURL = (
-            "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json"
-          );
-          return await tf.loadLayersModel(modelURL)
-        } else {
-          return await tf.loadLayersModel('indexeddb://model');
-        }
-      }).then(model => {
-        model.save('indexeddb://model');
-        // const result = tf.tidy(() => (
-        //   model.predict(tf.zeros([1, 224, 224, 3]))
-        // ));
-        // result.data();
-        // result.dispose();
-        return model;
-      }).catch(console.error);
+    return checkDBExists('tensorflowjs').then(async bool => {
+      if (!bool) {
+        console.log('downloading model...');
+        const modelURL = (
+          "https://s3-us-west-1.amazonaws.com/wsbuck/tfjs/model.json"
+        );
+        return await tf.loadLayersModel(modelURL);
+      } else {
+        return await tf.loadLayersModel('indexeddb://model');
+      }
+    }).then(model => {
+      model.save('indexeddb://model');
+      return model;
+    }).catch(console.error);
   }
 
   function getImage(img) {
